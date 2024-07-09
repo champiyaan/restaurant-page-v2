@@ -17,7 +17,7 @@ module.exports = {
     publicPath: "/",
   },
   optimization: {
-    runtimeChunk: "single",
+    runtimeChunk: false,
   },
   devServer: {
     static: "./dist",
