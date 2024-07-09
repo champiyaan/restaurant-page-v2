@@ -46,3 +46,9 @@ nav button:hover {
     color: #666;
   }
 }
+
+.menu-item img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}

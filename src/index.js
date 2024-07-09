@@ -1,10 +1,11 @@
 import _ from "lodash";
 import loadHome from "./home";
+import loadMenu from "./menu";
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Call the function to load the home content
-  loadHome();
-
-  // Add event listener for the "Home" tab
+function init() {
   document.getElementById("home-tab").addEventListener("click", loadHome);
-});
+  document.getElementById("menu-tab").addEventListener("click", loadMenu);
+  loadHome(); // This ensures that the home content is loaded by default.
+}
+
+document.addEventListener("DOMContentLoaded", init);
