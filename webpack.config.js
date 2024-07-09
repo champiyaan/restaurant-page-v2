@@ -1,9 +1,7 @@
 const path = require("path");
 
 const toml = require("toml");
-
 const yaml = require("yamljs");
-
 const json5 = require("json5");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -25,10 +23,19 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "RestaurantPage",
+      template: "./src/index.html",
     }),
   ],
   module: {
     rules: [
+      {
+        test: /\.scss$/i, // Matches .scss files
+        use: [
+          "style-loader", // Injects styles into DOM
+          "css-loader", // Parses CSS files
+          "sass-loader", // Compiles SCSS to CSS
+        ],
+      },
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
@@ -49,32 +56,23 @@ module.exports = {
         test: /\.xml$/i,
         use: ["xml-loader"],
       },
-
       {
         test: /\.toml$/i,
-
         type: "json",
-
         parser: {
           parse: toml.parse,
         },
       },
-
       {
         test: /\.yaml$/i,
-
         type: "json",
-
         parser: {
           parse: yaml.parse,
         },
       },
-
       {
         test: /\.json5$/i,
-
         type: "json",
-
         parser: {
           parse: json5.parse,
         },
