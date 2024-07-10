@@ -2,11 +2,11 @@ import "./styles.scss";
 
 function loadMenu() {
   const content = document.getElementById("content");
-  content.className = "menu"; // Apply menu styling
+  content.className = "menu"; // Add this line
   content.innerHTML = ""; // Clear previous content
 
   const heading = document.createElement("h2");
-  heading.textContent = "This Is Our Menu";
+  heading.textContent = "Our Menu";
   content.appendChild(heading);
 
   const menuItems = [
@@ -15,21 +15,21 @@ function loadMenu() {
       price: 15.99,
       image:
         "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z3JpbGxlZCUyMHNhbG1vbnxlbnwwfHwwfHx8MA%3D%3D",
-      description: "Freshly grilled salmon with a lemon butter sauce.",
+      item: "Freshly grilled salmon with a lemon butter sauce.",
     },
     {
       name: "Lobster Tail",
       price: 29.99,
       image:
         "https://images.unsplash.com/photo-1572406781543-c63cfe136bcf?q=80&w=2001&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      description: "Succulent lobster tail served with garlic butter.",
+      item: "Succulent lobster tail served with garlic butter.",
     },
     {
       name: "Seafood Platter",
       price: 24.99,
       image:
         "https://images.unsplash.com/photo-1614124544688-723cb2414de2?q=80&w=2189&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      description: "A variety of seafood including shrimp, crab, and clams.",
+      item: "A variety of seafood including shrimp, crab, and clams.",
     },
   ];
 
@@ -43,7 +43,7 @@ function loadMenu() {
     menuItem.appendChild(itemImage);
 
     const itemInfo = document.createElement("div");
-    itemInfo.className = "item-info"; // For styling
+    itemInfo.className = "item-info";
 
     const itemName = document.createElement("h2");
     itemName.textContent = item.name;
@@ -54,9 +54,11 @@ function loadMenu() {
     itemInfo.appendChild(itemDescription);
 
     const itemPrice = document.createElement("span");
-    itemPrice.className = "item-price"; // For styling
+    itemPrice.className = "item-price";
     itemPrice.textContent = `$${item.price.toFixed(2)}`;
     itemInfo.appendChild(itemPrice);
+
+    menuItem.appendChild(itemInfo);
 
     const addToCartButton = document.createElement("button");
     addToCartButton.className = "add-to-cart";
@@ -65,19 +67,19 @@ function loadMenu() {
     addToCartButton.dataset.price = item.price;
     addToCartButton.addEventListener("click", (event) => {
       const name = event.target.dataset.name;
-      const price = parent(event.target.dataset.price);
-      addToCartButton(name, price);
+      const price = parseFloat(event.target.dataset.price);
+      addToCart(name, price);
     });
 
-    menuItem.appendChild(itemInfo);
+    menuItem.appendChild(addToCartButton);
 
-    content.appendChild(menuItem); // Append each menu item to the content div
-  });
+    content.appendChild(menuItem);
+  }); /// for each
 
   const cart = document.createElement("div");
   cart.className = "cart";
 
-  const cartHeading = documment.createElement("h2");
+  const cartHeading = document.createElement("h2");
   cartHeading.textContent = "Cart";
   cart.appendChild(cartHeading);
 
@@ -85,7 +87,25 @@ function loadMenu() {
   cartItems.id = "cart-items";
   cart.appendChild(cartItems);
 
-  
+  const totalPriceHeading = document.createElement("h3");
+  totalPriceHeading.innerHTML = 'Total: $<span id="total-price">0.00</span>';
+  cart.appendChild(totalPriceHeading);
+
+  content.appendChild(cart);
+} //ends here
+
+function addToCart(name, price) {
+  const cartItems = document.getElementById("cart-items");
+  const totalPriceElement = document.getElementById("total-price");
+
+  const cartItem = document.createElement("div");
+  cartItem.className = "cart-item";
+  cartItem.innerHTML = `<span>${name}</span><span>$${price.toFixed(2)}</span>`;
+  cartItems.appendChild(cartItem);
+
+  let totalPrice = parseFloat(totalPriceElement.innerText);
+  totalPrice += price;
+  totalPriceElement.innerText = totalPrice.toFixed(2);
 }
 
 export default loadMenu;
