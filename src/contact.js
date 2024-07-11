@@ -4,14 +4,17 @@ function loadContact() {
   const content = document.getElementById("content");
   content.className = "contact"; // this is for styling
 
-  content.innerHtml = ` <h1>Contact Us</h1>
+  content.innerHTML = ` <h1>Contact Us</h1>
     <div id="map"></div>
+      <div class="form-container">
     <form id="contact-form">
       <input type="text" id="name" name="name" placeholder="Your Name" required>
       <input type="email" id="email" name="email" placeholder="Your Email" required>
       <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
-    </form>`;
+    </form>
+    </div>
+    `;
   initMap();
 }
 

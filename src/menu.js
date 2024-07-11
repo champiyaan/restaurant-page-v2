@@ -106,6 +106,12 @@ function addToCart(name, price) {
   let totalPrice = parseFloat(totalPriceElement.innerText);
   totalPrice += price;
   totalPriceElement.innerText = totalPrice.toFixed(2);
+
+  const cart = document.querySelector(".cart");
+  cart.classList.add("highlight");
+  setTimeout(() => {
+    cart.classList.remove("highlight");
+  }, 500);
 }
 
 export default loadMenu;
