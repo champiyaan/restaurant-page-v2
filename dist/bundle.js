@@ -129,6 +129,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/contact.js":
+/*!************************!*\
+  !*** ./src/contact.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\r\n\r\nfunction loadContact() {\r\n  const content = document.getElementById(\"content\");\r\n  content.className = \"contact\"; // this is for styling\r\n\r\n  content.innerHtml = ` <h1>Contact Us</h1>\r\n    <div id=\"map\"></div>\r\n    <form id=\"contact-form\">\r\n      <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"Your Name\" required>\r\n      <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"Your Email\" required>\r\n      <textarea id=\"message\" name=\"message\" rows=\"4\" placeholder=\"Your Message\" required></textarea>\r\n      <button type=\"submit\">Send Message</button>\r\n    </form>`;\r\n  initMap();\r\n}\r\n\r\nfunction initMap() {\r\n  const map = L.map(\"map\").setView([-33.9249, 18.4241], 13);\r\n\r\n  L.tileLayer(\"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\", {\r\n    attribution:\r\n      '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors',\r\n  }).addTo(map);\r\n\r\n  L.marker([-33.9249, 18.4241])\r\n    .addTo(map)\r\n    .bindPopup(\"This Is Our Restaurant\")\r\n    .openPopup();\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (loadContact);\r\n\n\n//# sourceURL=webpack://restaurant-page-v2/./src/contact.js?");
+
+/***/ }),
+
 /***/ "./src/home.js":
 /*!*********************!*\
   !*** ./src/home.js ***!
@@ -147,7 +158,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ \"./src/menu.js\");\n\r\n\r\n\r\n\r\nfunction init() {\r\n  document.getElementById(\"home-tab\").addEventListener(\"click\", _home__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\n  document.getElementById(\"menu-tab\").addEventListener(\"click\", _menu__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\r\n  (0,_home__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(); // This ensures that the home content is loaded by default.\r\n}\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", init);\r\n\n\n//# sourceURL=webpack://restaurant-page-v2/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ \"./src/menu.js\");\n/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contact */ \"./src/contact.js\");\n\r\n\r\n\r\n\r\n\r\nfunction init() {\r\n  document.getElementById(\"home-tab\").addEventListener(\"click\", _home__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\n  document.getElementById(\"menu-tab\").addEventListener(\"click\", _menu__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\r\n  document.getElementById(\"contact-tab\").addEventListener(\"click\", _contact__WEBPACK_IMPORTED_MODULE_3__[\"default\"]);\r\n  (0,_home__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(); // This ensures that the home content is loaded by default.\r\n}\r\n\r\ndocument.addEventListener(\"DOMContentLoaded\", init);\r\n\n\n//# sourceURL=webpack://restaurant-page-v2/./src/index.js?");
 
 /***/ }),
 
