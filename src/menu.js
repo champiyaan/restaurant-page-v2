@@ -74,7 +74,7 @@ function loadMenu() {
     menuItem.appendChild(addToCartButton);
 
     content.appendChild(menuItem);
-  }); /// for each
+  }); 
 
   const cart = document.createElement("div");
   cart.className = "cart";

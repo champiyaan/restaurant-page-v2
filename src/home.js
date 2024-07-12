@@ -1,4 +1,4 @@
-import "./styles.scss"; // Ensure this is the correct path for your SCSS file
+import "./styles.scss";
 
 function loadHome() {
   const content = document.getElementById("content");
