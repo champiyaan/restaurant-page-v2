@@ -92,6 +92,10 @@ nav button:hover {
   flex-direction: column;
   gap: 2rem;
   margin: 0 80px;
+
+  @media (max-width: 768px) {
+    margin: 0 20px;
+  }
 }
 
 .menu-item {
@@ -101,17 +105,30 @@ nav button:hover {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .menu-item img {
   width: 200px;
   height: 150px;
   object-fit: cover;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .item-info {
   padding: 1rem;
   flex: 1;
+  text-align: left;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 }
 
 .item-info h2 {
