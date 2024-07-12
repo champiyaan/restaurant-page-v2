@@ -2,8 +2,8 @@ import "./styles.scss";
 
 function loadMenu() {
   const content = document.getElementById("content");
-  content.className = "menu"; // Add this line
-  content.innerHTML = ""; // Clear previous content
+  content.className = "menu";
+  content.innerHTML = "";
 
   const heading = document.createElement("h2");
   heading.textContent = "Our Menu";
@@ -92,7 +92,7 @@ function loadMenu() {
   cart.appendChild(totalPriceHeading);
 
   content.appendChild(cart);
-} //ends here
+}
 
 function addToCart(name, price) {
   const cartItems = document.getElementById("cart-items");
