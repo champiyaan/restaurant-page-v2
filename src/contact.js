@@ -2,7 +2,7 @@ import "./styles.scss";
 
 function loadContact() {
   const content = document.getElementById("content");
-  content.className = "contact"; // this is for styling
+  content.className = "contact";
 
   content.innerHTML = ` <h1>Contact Us</h1>
     <div id="map"></div>
